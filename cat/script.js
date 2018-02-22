@@ -1,5 +1,7 @@
-$(function displayTop() {
-  return $('.thumbnail').on('click', 'img', function(event) {
-    return $(event.target).addClass('.hero');
+$(function() {
+  $('.thumbnail').on('click', function(event) {
+    const imgSrc = $(this).find('img').attr('src');
+    const imgAlt = $(this).find('img').attr('alt');
+    $('.hero img').attr('src', imgSrc).attr('alt', imgAlt);
   });
 });
