@@ -26,12 +26,16 @@ function createEle(num){
 
 function blindEventListeners(){
     $('#number-chooser').submit((event) => {
-      event.preventDefault();
-      const numberInput = $(event.target).find('#number-choice');
-      const countTo = parseInt(numberInput.val(), 10);
-      numberInput.val('');
-      for (let i = 1; i <= countTo; i++){
-        $('.js-results').append(createEle(i));
+    event.preventDefault();
+    let node = $('.js-results').text('');
+    $('.js-results').html(node);
+    const numberInput = $(event.target).find('#number-choice');
+    const countTo = parseInt(numberInput.val(), 10);
+    numberInput.val('');
+    
+    for (let i = 1; i <= countTo; i++){
+    $('.js-results').append(createEle(i));
+    
       }
     });
 }
