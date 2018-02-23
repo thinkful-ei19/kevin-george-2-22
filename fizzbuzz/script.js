@@ -1,23 +1,27 @@
 function fizzbuzz(num){
-    if (num % 5 === 0){
+    if (num % 15 === 0){
+        return 'fizzbuzz';
+    }
+    else if (num % 5 === 0){
         return 'buzz';
     }
     else if (num % 3 === 0){
         return 'fizz';
-    }
-    else if (num % 15 === 0){
-        return 'fizz buzz';
     }
     else {
         return num;
     }
 }
 
-function createEle(){
+function createEle(num){
     const elem = document.createElement('div');
-    if (typeof ){
-
+    const result = fizzbuzz(num);
+    elem.innerHTML = `<span>${result}</span>`;
+    elem.classList.add('fizz-buzz-item');
+    if ( typeof result === 'string' ){
+       elem.classList.add(result);
     }
+    return elem;
 }
 
 function blindEventListeners(){
@@ -26,8 +30,9 @@ function blindEventListeners(){
       const numberInput = $(event.target).find('#number-choice');
       const countTo = parseInt(numberInput.val(), 10);
       numberInput.val('');
-      const data = fizzbuzz(countTo);
-      $('.js-results').html(elements);
+      for (let i = 1; i <= countTo; i++){
+        $('.js-results').append(createEle(i));
+      }
     });
 }
 
