@@ -19,6 +19,7 @@ $(function() {
       </li>  
     `);
     $('input').val('');
+    // just another way to remove the input values - does same thing as line above
     // document.getElementsByClassName('js-shopping-list-entry')[0].value='';
   });
 
